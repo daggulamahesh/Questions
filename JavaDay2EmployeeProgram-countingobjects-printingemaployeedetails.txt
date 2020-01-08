@@ -1,0 +1,121 @@
+/*AUTHOR:Maheswara Reddy
+ * DATE:08-01-2020
+ * 
+ POJO CLASS OF EMPLOYEE*/
+package com.cts.inheritance;
+
+public class Employee {
+	static int countobjects=0;
+	{
+		countobjects+=1;
+	}
+	private int empId;
+	public int getEmpId() {
+		return empId;
+	}
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
+	String empName;
+	String compName;
+	String dept;
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+	public Employee(int id, String name, String dept2, String comp) {
+		this.empId=id;
+		this.compName=comp;
+		this.dept=dept2;
+		this.empName=name;
+	}
+	public void work(){
+		System.out.println("working from 9 to 6");
+	}
+	public void checkProfile(){
+		System.out.println("open profile");
+	}
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", empName="
+			 + empName + ", compName=" + compName + ", dept=" + dept + "]";
+	}     
+	
+}
+
+-------------------------------------------------------------------
+/* AUTHOR:Maheswara Reddy
+ * DATE:08-01-2020
+ * Admin class used to store admin details*/
+
+package com.cts.inheritance;
+
+public class Admin extends Employee{
+	static int nocountobjects=0;
+	
+	{
+		nocountobjects+=1;//it is used to count objects created for Admin
+	}
+	String username;
+	int password;
+	
+
+	public Admin() {
+		// TODO Auto-generated constructor stub
+	}
+	public Admin(int id,String name,String dept,String comp,String username,int password) {
+	super(id,name,dept,comp);
+	this.username=username;
+	this.password=password;
+	System.out.println("obj of admin created ");
+	}
+	@Override
+	public String toString() {
+		return "Admin [username=" + username + ", password=" + password + ", empName=" + empName + ", compName="
+				+ compName + ", dept=" + dept + "]";
+	}
+	
+	
+}
+----------------------------------------------------------------------------------
+/* AUTHOR:Maheswara Reddy
+ * DATE:08-01-2020
+ * Manager class// used to store Manager details
+ * */
+package com.cts.inheritance;
+
+public class Manager extends Employee {
+	static int ncountobjects=0;
+	{
+		ncountobjects+=1;////it is used to count objects created for Manager
+	} 
+	
+	int ManagerCabinNo;
+	String ManagerCabinLocation;
+	int NoOfTeams;
+
+	public Manager()
+	{
+		
+	}
+
+	public Manager(int id,String name,String dept,String comp,int ManagerCabinNo,
+						String ManagerCabinLocation,int NoOfTeams)
+	{
+		super(id,name,dept,comp);
+		this.ManagerCabinNo=ManagerCabinNo;
+		this.ManagerCabinLocation=ManagerCabinLocation;
+		this.NoOfTeams=NoOfTeams;
+		System.out.println("obj of Manager created ");
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Manager [ManagerCabinNo=" + ManagerCabinNo + 
+			", ManagerCabinLocation=" + ManagerCabinLocation
+ + ", NoOfTeams=" + NoOfTeams + ", empName=" + empName + ", compName=" + compName + ", dept=" + dept
+				+ "]";
+	}
+	
+}
+-----------------------------------------------------------------------------------------------------
